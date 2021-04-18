@@ -3,6 +3,7 @@ using Game.Tasks;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using System.Linq;
+using Mirror;
 
 namespace Game.Managers
 {
@@ -37,6 +38,12 @@ namespace Game.Managers
 
             var genericTasks = await GenericTaskReader.ReadTasksFromDiskAsync();
             Tasks = Tasks.Concat(genericTasks).ToList();
+
+            var genericTaskPrefab = AssetManager.Prefab("GenericTaskObjective");
+
+            var genericTaskGameObject = Object.Instantiate(genericTaskPrefab, new Vector3(12.97f, 1.08f, 0), Quaternion.identity);
+
+            NetworkServer.Spawn(genericTaskGameObject);
         }
 
         public static void AddTaskUpdateListener(UnityAction action) {

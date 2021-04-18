@@ -656,6 +656,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.12
       objectReference: {fileID: 0}
+    - target: {fileID: 8384883163987698912, guid: 8d102fbc1a9355145947d5f6acfc7b34, type: 3}
+      propertyPath: TaskName
+      value: GenericTask
+      objectReference: {fileID: 0}
     - target: {fileID: 8839938119001488454, guid: 8d102fbc1a9355145947d5f6acfc7b34, type: 3}
       propertyPath: m_Mesh
       value: 
