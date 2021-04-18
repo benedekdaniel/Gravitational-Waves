@@ -42,7 +42,7 @@ namespace Game.Managers {
         {
             if (SceneArguments.TryGetValue(sceneName, out List<KeyValuePair<string, dynamic>> argumentsListForScene))
             {
-                return (T) argumentsListForScene.Find(arg => arg.Key == argumentName).Value;
+                return (T) argumentsListForScene.Find(arg => arg.Key == argumentName).Value; 
             }
 
             return default;
