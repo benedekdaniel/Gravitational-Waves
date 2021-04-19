@@ -9,8 +9,7 @@ namespace Game.Managers
 {
     public static class TaskManager {
 
-        public static List<Task> Tasks { get; private set; }
-        public static Task GetRandomTask() => Tasks[UnityEngine.Random.Range(0, Tasks.Count)];
+        public static List<Task> Tasks = new List<Task>();
         public static UnityEvent OnTaskUpdate  = new UnityEvent();
 
         internal static void TriggeredTask(Task task) {
@@ -28,7 +27,7 @@ namespace Game.Managers
             }
         }
 
-        public static async System.Threading.Tasks.Task LoadAsync() {
+        public static async System.Threading.Tasks.Task LoadTasksAsync() {
 
             Tasks = new List<Task>() {
                 new StandardTask("MirrorCleaning", "Mirror Cleaning", "Clean those mirrors, fool!", "Mirror Cleaning Task", "Reward1"),
@@ -39,11 +38,7 @@ namespace Game.Managers
             var genericTasks = await GenericTaskReader.ReadTasksFromDiskAsync();
             Tasks = Tasks.Concat(genericTasks).ToList();
 
-            var genericTaskPrefab = AssetManager.Prefab("GenericTaskObjective");
-
-            var genericTaskGameObject = Object.Instantiate(genericTaskPrefab, new Vector3(12.97f, 1.08f, 0), Quaternion.identity);
-
-            NetworkServer.Spawn(genericTaskGameObject);
+            
         }
 
         public static void AddTaskUpdateListener(UnityAction action) {

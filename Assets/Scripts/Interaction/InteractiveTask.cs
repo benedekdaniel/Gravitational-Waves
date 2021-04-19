@@ -19,10 +19,14 @@ public class InteractiveTask : MonoBehaviour {
     public InteractionListener InteractionListener { get; private set; }
     private void OnEnable() {
         InteractionListener = gameObject.GetComponent<InteractionListener>();
-        Task = TaskManager.Task(TaskName);
+        if (!string.IsNullOrEmpty(TaskName))
+            Task = TaskManager.Task(TaskName);
     }
 
-
+    public void SetTask(Task task)
+    {
+        this.Task = task;
+    }
     private void Start() {
         if (!Ready) {
             if (Task != null) {

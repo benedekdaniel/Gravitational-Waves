@@ -1,5 +1,8 @@
 using Game.Managers;
+using Game.Tasks;
 using System.Collections;
+using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +22,19 @@ namespace Mirror.Examples.Additive
 
         public override void OnStartServer()
         {
+            if (MySceneManager.GetSceneArgument<bool>("GameView", "IsHost"))
+            {
+                var genericTaskPrefab = AssetManager.Prefab("GenericTaskObjective");
+
+                var genericTaskGameObject = Instantiate(genericTaskPrefab, new Vector3(12.97f, 1.08f, 0), Quaternion.identity);
+
+                var interactiveTask = genericTaskGameObject.GetComponent<InteractiveTask>();
+
+                interactiveTask.SetTask(TaskManager.Tasks.FirstOrDefault(gt => gt is GenericTask) as GenericTask);
+                NetworkServer.Spawn(genericTaskGameObject);
+            }
             base.OnStartServer();
+
         }
 
         public override void Start() {

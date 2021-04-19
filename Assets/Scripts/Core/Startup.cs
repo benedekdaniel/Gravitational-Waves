@@ -1,19 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
+﻿using UnityEngine;
 using Game.Managers;
-using System;
 using System.Threading.Tasks;
 
-namespace Game.Core {
+namespace Game.Core
+{
 
     //[InitializeOnLoad]
     public static class Startup {
         [RuntimeInitializeOnLoadMethod]
         static async Task OnRuntimeMethodLoad() {
             Debug.Log("Starting Manager Loading");
-            await TaskManager.LoadAsync();
+            await TaskManager.LoadTasksAsync();
 
             SettingsManager.Load();
             AssetManager.Load();

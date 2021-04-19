@@ -12,11 +12,9 @@ GameObject:
   - component: {fileID: 9167545415433517909}
   - component: {fileID: 2749958089148588324}
   - component: {fileID: 5895451437903434674}
-  - component: {fileID: 861013430637132522}
   - component: {fileID: 7044572092169122657}
   - component: {fileID: 7580827223977894017}
   - component: {fileID: 1068111115782466416}
-  - component: {fileID: 5821242247003268893}
   - component: {fileID: 3323544743285949979}
   m_Layer: 0
   m_Name: GenericTaskObjective
@@ -102,24 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &861013430637132522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653886982184928785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 4
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &7044572092169122657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,20 +150,6 @@ MonoBehaviour:
   OnInteraction:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5821242247003268893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653886982184928785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d83abf4d08bbc4390519c3bbc4d22b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
 --- !u!114 &3323544743285949979
 MonoBehaviour:
   m_ObjectHideFlags: 0
