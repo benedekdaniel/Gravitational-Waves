@@ -14,6 +14,7 @@ public class InteractiveTask : NetworkBehaviour {
     [SyncVar]
     public string TaskName;
 
+    [SyncVar]
     public Task Task;
 
     public InteractionListener InteractionListener { get; private set; }
@@ -21,7 +22,6 @@ public class InteractiveTask : NetworkBehaviour {
     public void SetTask(Task task)
     {
         Task = task;
-        TaskName = task.GetTitle();
     }
     private void Start() {
         InteractionListener = gameObject.GetComponent<InteractionListener>();

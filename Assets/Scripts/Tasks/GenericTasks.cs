@@ -19,14 +19,5 @@ namespace Game.Tasks
             Url = url;
             CorrectAnswer = correctAnswer;
         }
-
-        public GenericTask(Task task) : base(task)
-        {
-        }
-
-        public override Task Clone()
-        {
-            return new GenericTask(this);
-        }
     }
 }
