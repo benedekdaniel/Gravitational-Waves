@@ -7,10 +7,10 @@ namespace Game.Tasks
     public class GenericTask : Task
     {
         [JsonProperty("task_url")]
-        public string Url { get; set; }
+        public string Url;
 
         [JsonProperty("correct_answer")]
-        public string CorrectAnswer { get; set; }
+        public string CorrectAnswer;
 
 
         [JsonConstructor]

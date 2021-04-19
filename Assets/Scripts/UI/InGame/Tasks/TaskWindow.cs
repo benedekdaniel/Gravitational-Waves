@@ -16,9 +16,7 @@ public class TaskWindow : MonoBehaviour {
 
     public string TaskExternalURL{ get; private set; }
 
-    public GenericTaskManager GenericTaskManager;
-
-    public Task Task { get; private set; }
+    public Task Task;
 
     public bool Ready { get; private set; }
 
@@ -41,7 +39,7 @@ public class TaskWindow : MonoBehaviour {
     }
 
     public void SetTask(Task task) {
-        Task = task;
+        
         TaskTitle.text = task.Title;
         if (task is GenericTask genericTask)
         {
@@ -49,18 +47,15 @@ public class TaskWindow : MonoBehaviour {
             TaskInstance = genericTaskGameObject.GetComponent<ITaskPrefab>();
 
             var genericTaskManager = genericTaskGameObject.GetComponent<GenericTaskManager>();
-
-
-            Debug.Log("Set Generic Task");
             genericTaskManager.SetTask(genericTask);
+            Task = genericTask;
         }
         else
         {
             TaskInstance = InstanceManager.Instantiate(task.Prefab, TaskContainer).GetComponent<ITaskPrefab>();
-
+            Task = task;
         }
 
-        Task.Owner.HasTaskOpen = true;
         TaskInstance.SetParent(this);
     }
 

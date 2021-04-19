@@ -5,10 +5,8 @@ public class TaskListArrow : UIUtils
 
     private float _nextRotation;
 
-    private new void Awake()
+    private void Awake()
     {
-        base.Awake();
-
         _nextRotation = RotateOnZBy;
     }
 

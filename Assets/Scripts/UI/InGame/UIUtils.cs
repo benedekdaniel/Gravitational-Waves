@@ -4,12 +4,7 @@ using UnityEngine.UI;
 
 public class UIUtils : MonoBehaviour
 {
-
     private bool _visible = true;
-
-    protected void Awake()
-    {
-    }
 
     /// <summary>
     /// Toggles whether a UI component is visible or not.

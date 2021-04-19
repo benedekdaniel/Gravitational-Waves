@@ -434,7 +434,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9045352900663978293}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GenericTaskManager, Assembly-CSharp
         m_MethodName: CheckGenericTaskAnswer
         m_Mode: 5
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9045352900663978293}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GenericTaskManager, Assembly-CSharp
         m_MethodName: CheckGenericTaskAnswer
         m_Mode: 5
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9045352900663978293}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GenericTaskManager, Assembly-CSharp
         m_MethodName: CheckGenericTaskAnswer
         m_Mode: 5
@@ -833,7 +833,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9045352900663978293}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GenericTaskManager, Assembly-CSharp
         m_MethodName: CheckGenericTaskAnswer
         m_Mode: 5
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 8843041399171231364}
   - component: {fileID: 8593828977938865548}
   - component: {fileID: 8114717128782374254}
-  - component: {fileID: 9045352900663978293}
+  - component: {fileID: 6435271985630205081}
   m_Layer: 5
   m_Name: Keypad
   m_TagString: Untagged
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9045352900663978293
+--- !u!114 &6435271985630205081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -932,11 +932,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3356455490406580562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c495f2bf7c6bf54192fa4c5fd7b6630, type: 3}
+  m_Script: {fileID: 11500000, guid: ead1e8d0fcb64134b873bc9b3d97be29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputCode: {fileID: 2266678066198763702}
-  resetTimeInSeconds: 0.5
 --- !u!1 &3752550060607430192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1056,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9045352900663978293}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GenericTaskManager, Assembly-CSharp
         m_MethodName: CheckGenericTaskAnswer
         m_Mode: 5
@@ -1191,7 +1189,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9045352900663978293}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GenericTaskManager, Assembly-CSharp
         m_MethodName: CheckGenericTaskAnswer
         m_Mode: 5
@@ -1709,7 +1707,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9045352900663978293}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GenericTaskManager, Assembly-CSharp
         m_MethodName: CheckGenericTaskAnswer
         m_Mode: 5
@@ -1842,7 +1840,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9045352900663978293}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GenericTaskManager, Assembly-CSharp
         m_MethodName: CheckGenericTaskAnswer
         m_Mode: 5
@@ -1975,7 +1973,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9045352900663978293}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GenericTaskManager, Assembly-CSharp
         m_MethodName: CheckGenericTaskAnswer
         m_Mode: 5

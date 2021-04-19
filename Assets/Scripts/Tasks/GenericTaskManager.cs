@@ -11,13 +11,11 @@ public class GenericTaskManager : MonoBehaviour, ITaskPrefab
     [SerializeField]
     protected float resetTimeInSeconds = 0.5f;
 
-    public string TaskName;
-
     private UIUtils UIUtils;
 
     public TaskWindow Parent { get; set; }
 
-    public GenericTask CurrentGenericTask;
+    public GenericTask CurrentGenericTask = null;
 
 
     public Button CompleteBtn => throw new System.NotImplementedException();
@@ -30,7 +28,6 @@ public class GenericTaskManager : MonoBehaviour, ITaskPrefab
     public void SetTask(GenericTask currentTask)
     {
         CurrentGenericTask = currentTask;
-        TaskName = CurrentGenericTask.GetTitle();
     }
 
     public void CheckGenericTaskAnswer(string asnwer) 
@@ -38,6 +35,7 @@ public class GenericTaskManager : MonoBehaviour, ITaskPrefab
         if (asnwer == CurrentGenericTask.CorrectAnswer)
         {
             _inputCode.text = "Correct";
+            CompleteTask();
             return;
         }
         
@@ -52,7 +50,7 @@ public class GenericTaskManager : MonoBehaviour, ITaskPrefab
 
     public void CompleteTask()
     {
-        throw new System.NotImplementedException();
+        Parent.CompleteTask();
     }
 
     public void SetParent(TaskWindow parent)
