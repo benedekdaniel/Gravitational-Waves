@@ -1,5 +1,6 @@
 using Game.Managers;
 using Game.Tasks;
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,9 @@ using UnityEngine.Events;
 
 
 [RequireComponent(typeof(InteractionListener))]
-public class InteractiveTask : MonoBehaviour {
+public class InteractiveTask : NetworkBehaviour {
 
+    [SyncVar]
     public string TaskName;
 
     public Task Task;
@@ -19,6 +21,7 @@ public class InteractiveTask : MonoBehaviour {
     public void SetTask(Task task)
     {
         Task = task;
+        TaskName = task.GetTitle();
     }
     private void Start() {
         InteractionListener = gameObject.GetComponent<InteractionListener>();
