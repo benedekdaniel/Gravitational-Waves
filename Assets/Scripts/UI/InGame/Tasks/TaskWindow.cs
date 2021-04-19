@@ -50,6 +50,8 @@ public class TaskWindow : MonoBehaviour {
 
             var genericTaskManager = genericTaskGameObject.GetComponent<GenericTaskManager>();
 
+
+            Debug.Log("Set Generic Task");
             genericTaskManager.SetTask(genericTask);
         }
         else
