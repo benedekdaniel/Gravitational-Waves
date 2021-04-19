@@ -1,3 +1,5 @@
+using Game.Managers;
+using Game.Managers.Controllers;
 using Game.Tasks;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,8 +13,6 @@ public enum InteractionMethod
     Key
 }
 
-[RequireComponent(typeof(SphereCollider))]
-[RequireComponent(typeof(NetworkProximityFinder))]
 public class InteractionListener : MonoBehaviour, IInteractible { 
 
     [Tooltip("Toggle whether this Game Object can be interacted with.")]
@@ -34,31 +34,28 @@ public class InteractionListener : MonoBehaviour, IInteractible {
 
     public UnityEvent OnInteraction = new UnityEvent(); 
 
-    private SphereCollider sphereCollider;
+    private PlayerController localPlayerController;
 
-    private NetworkProximityFinder networkProximityChecker;
-
-    public void Start()
-    {
-        sphereCollider = GetComponent<SphereCollider>();
-        sphereCollider.isTrigger = true;
-        sphereCollider.radius = triggerRadius;
-        networkProximityChecker = transform.GetComponent<NetworkProximityFinder>();
+    public void OnEnable() {
+        OnInteraction = new UnityEvent();
     }
 
-    public void Interact()
+    private void Start()
     {
+        localPlayerController = FindObjectOfType<PlayerController>();
+    }
+
+    public void Interact() {
+        OnInteraction?.Invoke();
+    }
+
+    public void Update() {
+
+        if (localPlayerController == null) return;
         
-         OnInteraction.Invoke();
-
-    }
-
-    public void Update()
-    {
         if (IsInteractableBy(InteractionMethod.Key))
         {
-            float distance = networkProximityChecker.DistanceToLocalConn();
-            if (distance >= 0 && distance <= triggerRadius)
+            if (Vector3.Distance(transform.position, localPlayerController.gameObject.transform.position) <= triggerRadius)
             {
                 foreach (var keyCode in GetTriggerKeys())
                 {
@@ -76,10 +73,11 @@ public class InteractionListener : MonoBehaviour, IInteractible {
     // Change this so it only registers on the specified collider.
     public void OnMouseDown()
     {
+        if (localPlayerController == null) return;
+
         if (IsInteractableBy(InteractionMethod.Mouse))
         {
-            float distance = networkProximityChecker.DistanceToLocalConn();
-            if (distance >= 0 && distance <= triggerRadius)
+            if (Vector3.Distance(transform.position, localPlayerController.gameObject.transform.position) <= triggerRadius)
             {
                 Interact();
             }
@@ -117,12 +115,8 @@ public class InteractionListener : MonoBehaviour, IInteractible {
     /// When another object with a collider enters the trigger.
     /// </summary>
     /// <param name="other">The other object's collider compontent.</param>
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!IsInteractableBy(InteractionMethod.Trigger)) return;
-
-        if (other.gameObject.CompareTag("Player"))
-        {
+    private void OnTriggerEnter(Collider other) {
+        if (IsInteractableBy(InteractionMethod.Trigger) && other.gameObject.CompareTag("Player")) {
             Interact();
         }
     }

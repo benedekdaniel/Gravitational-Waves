@@ -32,8 +32,6 @@ namespace Game.Core {
 
             TeamManager.Load();
 
-            NetworkManager.Load();
-
             Debug.Log("Finished Manager Loading");
         }
     }

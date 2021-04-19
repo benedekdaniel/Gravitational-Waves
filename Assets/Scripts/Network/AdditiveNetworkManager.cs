@@ -1,3 +1,4 @@
+using Game.Managers;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,22 +20,28 @@ namespace Mirror.Examples.Additive
         public override void OnStartServer()
         {
             base.OnStartServer();
-
-           
         }
 
         public override void Start() {
+
+            StartCoroutine(LoadSubScenes());
+
+
+            var isHost = MySceneManager.GetSceneArgument<bool>("GameView", "IsHost");
+            if (isHost)
+            {
+                StartHosting();
+            }
+
             base.Start();
-            if (!isNetworkActive) {
+        }
+
+        public void StartHosting()
+        {
+            if (!isNetworkActive)
+            {
                 StartHost();
             }
-
-            if (autoCreatePlayer) {
-                ClientScene.AddPlayer(NetworkClient.connection);
-            }
-
-            // load all subscenes on the server only
-            StartCoroutine(LoadSubScenes());
 
             // Instantiate Zone Handler on server only
             Instantiate(Zone);

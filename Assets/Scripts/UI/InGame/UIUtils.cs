@@ -23,7 +23,7 @@ public class UIUtils : MonoBehaviour
 
     public void RotateZBy(float degrees, float duration)
     {
-        LeanTween.rotate(gameObject, new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z + degrees), duration);
+        // GameObject.Rotate(gameObject, new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z + degrees), duration);
     }
 
     public IEnumerator ResetCode(Text inputCode, float codeResetTimeInSeconds)
