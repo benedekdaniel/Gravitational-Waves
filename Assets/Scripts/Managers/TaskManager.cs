@@ -21,8 +21,8 @@ namespace Game.Managers
 
             if (playerTask != null) {
                 GameObject taskUI = InstanceManager.DisplayFullscreen("Task UI Framework");
-                TaskWindow taskPrefab = taskUI.GetComponent<TaskWindow>();
-                taskPrefab.SetTask(playerTask);
+                TaskWindow taskWindow = taskUI.GetComponent<TaskWindow>();
+                taskWindow.SetTask(playerTask);
                 PlayerManager.LocalPlayer.HasTaskOpen = true;
             }
         }

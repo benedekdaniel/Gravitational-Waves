@@ -15,7 +15,6 @@ namespace Game.Managers {
 
         public static void Load() {
             LocalPlayer = CreatePlayer("Test Player", TeamManager.Teams[0]);
-            AssignRandomTasks(LocalPlayer);
         }
 
         public static void AssignRandomTasks(Player player) {

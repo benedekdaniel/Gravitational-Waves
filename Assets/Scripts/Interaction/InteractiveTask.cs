@@ -10,34 +10,22 @@ using UnityEngine.Events;
 [RequireComponent(typeof(InteractionListener))]
 public class InteractiveTask : MonoBehaviour {
 
-    public string TaskName = "HelloWorld";
+    public string TaskName;
 
-    public Task Task { get; private set; }
-
-    public bool Ready { get; private set; }
+    public Task Task;
 
     public InteractionListener InteractionListener { get; private set; }
-    private void OnEnable() {
-        InteractionListener = gameObject.GetComponent<InteractionListener>();
-        if (!string.IsNullOrEmpty(TaskName))
-            Task = TaskManager.Task(TaskName);
-    }
 
     public void SetTask(Task task)
     {
-        this.Task = task;
+        Task = task;
     }
     private void Start() {
-        if (!Ready) {
-            if (Task != null) {
-                InteractionListener.OnInteraction.AddListener(Trigger);
-                Ready = true;
-            }
-        }
-    }
+        InteractionListener = gameObject.GetComponent<InteractionListener>();
+        InteractionListener.OnInteraction.AddListener(Trigger);
 
-    private void Update() {
-
+        if (!string.IsNullOrEmpty(TaskName))
+            Task = TaskManager.Task(TaskName);
     }
 
     private void OnDestroy() {

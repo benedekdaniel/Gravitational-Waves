@@ -5,6 +5,7 @@ public interface ITaskPrefab {
     TaskWindow Parent { get; } // ????
 
     bool IsReady();
+
     void CompleteTask();
     void SetParent(TaskWindow parent);
 }

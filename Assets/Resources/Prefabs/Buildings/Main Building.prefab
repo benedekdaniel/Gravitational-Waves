@@ -27,9 +27,9 @@ GameObject:
   - component: {fileID: 910626868767925301}
   - component: {fileID: 5914534195236505933}
   - component: {fileID: 4227498270609818174}
-  - component: {fileID: 934303382420903697}
   - component: {fileID: 565190542662729787}
   - component: {fileID: 1797546043687084775}
+  - component: {fileID: 3569949163298508399}
   m_Layer: 0
   m_Name: Objective (4)
   m_TagString: Untagged
@@ -130,19 +130,6 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!135 &934303382420903697
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648832130135456336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000005
-  m_Center: {x: 0.000009536743, y: -0.00003027916, z: 0}
 --- !u!114 &565190542662729787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,9 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0896e4e144d74d5469aa31a59e434147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInteractionAllowed: 1
-  CanTriggerByProximity: 0
-  triggerRadius: 3
+  IsInteractionAllowed: 0
+  triggerRadius: 1
   CanTriggerByMouse: 1
   CanTriggerByKeys: 1
   TriggerKeys: 66000000
@@ -177,6 +163,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskName: MirrorCleaning
+--- !u!135 &3569949163298508399
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648832130135456336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &996934611228856098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1087,7 @@ GameObject:
   - component: {fileID: 3878224476303979595}
   - component: {fileID: 6785487704596460095}
   - component: {fileID: 2315571327019511342}
-  - component: {fileID: 1142989464934178282}
+  - component: {fileID: 5340187349812801038}
   m_Layer: 0
   m_Name: Objective (6)
   m_TagString: Untagged
@@ -1185,9 +1184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0896e4e144d74d5469aa31a59e434147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInteractionAllowed: 1
-  CanTriggerByProximity: 0
-  triggerRadius: 3
+  IsInteractionAllowed: 0
+  triggerRadius: 1
   CanTriggerByMouse: 1
   CanTriggerByKeys: 1
   TriggerKeys: 66000000
@@ -1223,7 +1221,7 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!135 &1142989464934178282
+--- !u!135 &5340187349812801038
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1343,10 +1341,10 @@ GameObject:
   - component: {fileID: 2260164775479806829}
   - component: {fileID: 7956536571469526623}
   - component: {fileID: 4812163307121692255}
-  - component: {fileID: 7931765303923551150}
   - component: {fileID: 6283530029682673631}
   - component: {fileID: 1020882857631996713}
   - component: {fileID: 2072358607829456281}
+  - component: {fileID: 778065462364857962}
   m_Layer: 0
   m_Name: Objective (8)
   m_TagString: Untagged
@@ -1431,19 +1429,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &7931765303923551150
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9000125004701238971}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000005
-  m_Center: {x: 0.000009536743, y: -0.00003027916, z: 0}
 --- !u!114 &6283530029682673631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,9 +1441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0896e4e144d74d5469aa31a59e434147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInteractionAllowed: 1
-  CanTriggerByProximity: 0
-  triggerRadius: 3
+  IsInteractionAllowed: 0
+  triggerRadius: 1
   CanTriggerByMouse: 1
   CanTriggerByKeys: 1
   TriggerKeys: 66000000
@@ -1494,6 +1478,19 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!135 &778065462364857962
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000125004701238971}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &585137201138652648
 PrefabInstance:
   m_ObjectHideFlags: 0

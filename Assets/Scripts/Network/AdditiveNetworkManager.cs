@@ -22,18 +22,22 @@ namespace Mirror.Examples.Additive
 
         public override void OnStartServer()
         {
+            base.OnStartServer();
+
             if (MySceneManager.GetSceneArgument<bool>("GameView", "IsHost"))
             {
                 var genericTaskPrefab = AssetManager.Prefab("GenericTaskObjective");
 
-                var genericTaskGameObject = Instantiate(genericTaskPrefab, new Vector3(12.97f, 1.08f, 0), Quaternion.identity);
+                var genericTaskGameObject = Instantiate(genericTaskPrefab, new Vector3(-18.22f, 0.5f, -31.53f), Quaternion.identity);
 
                 var interactiveTask = genericTaskGameObject.GetComponent<InteractiveTask>();
 
                 interactiveTask.SetTask(TaskManager.Tasks.FirstOrDefault(gt => gt is GenericTask) as GenericTask);
                 NetworkServer.Spawn(genericTaskGameObject);
+
+                // Assign tasks for host
+                PlayerManager.AssignRandomTasks(PlayerManager.LocalPlayer);
             }
-            base.OnStartServer();
 
         }
 
@@ -95,6 +99,13 @@ namespace Mirror.Examples.Additive
                 }
 
             yield return Resources.UnloadUnusedAssets();
+        }
+
+        private void OnConnectedToServer()
+        {
+            // Assign tasks for clients
+            PlayerManager.AssignRandomTasks(PlayerManager.LocalPlayer);
+
         }
     }
 }
