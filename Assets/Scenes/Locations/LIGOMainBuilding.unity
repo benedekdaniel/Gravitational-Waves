@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 218677764}
-  m_IndirectSpecularColor: {r: 0.44119328, g: 0.48997116, b: 0.570039, a: 1}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.44824904, g: 0.49827605, b: 0.5755831, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -147,13 +147,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218677762}
-  m_LocalRotation: {x: 0.49858513, y: 0.32217357, z: -0.20652072, w: 0.77779585}
-  m_LocalPosition: {x: -5.98, y: 24.05, z: -5.98}
+  m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1888765944}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 65.322, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
 --- !u!108 &218677764
 Light:
   m_ObjectHideFlags: 0
@@ -165,17 +165,17 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9846108, b: 0.8254717, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.652
+    m_Strength: 1
     m_Bias: 0.038
     m_NormalBias: 0.038
     m_NearPlane: 0.26
@@ -208,7 +208,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0.5
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,6 @@ PrefabInstance:
       propertyPath: triggerRadius
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 910626868767925301, guid: 8d102fbc1a9355145947d5f6acfc7b34, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
     - target: {fileID: 1204000674175217836, guid: 8d102fbc1a9355145947d5f6acfc7b34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -319,10 +315,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3172497790610140003, guid: 8d102fbc1a9355145947d5f6acfc7b34, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
     - target: {fileID: 3888574603015116085, guid: 8d102fbc1a9355145947d5f6acfc7b34, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.25
@@ -451,13 +443,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.25
       objectReference: {fileID: 0}
-    - target: {fileID: 7956536571469526623, guid: 8d102fbc1a9355145947d5f6acfc7b34, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
     - target: {fileID: 7957100634268262258, guid: 8d102fbc1a9355145947d5f6acfc7b34, type: 3}
       propertyPath: m_Name
-      value: WaveformFitter
+      value: Objective (6)
       objectReference: {fileID: 0}
     - target: {fileID: 8175863840145547617, guid: 8d102fbc1a9355145947d5f6acfc7b34, type: 3}
       propertyPath: m_LocalScale.x
