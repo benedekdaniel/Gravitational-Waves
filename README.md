@@ -28,14 +28,14 @@ Steps to take to deploy the project:
         - The desktop build should ready
 
     2. Do a web-build by going into: File -> Build Settings then:
-        - Select WebGL as the platform
+        - Select WebGL as the platform (Switch Platform)
         - Click build
         - Select a folder for the build
         - This should take longer to build
         - The web build should be ready
 
-    3. Run a web server that is going to act as the client platform by opening the cli and typing: python -m http.server --cgi 8360 then:
-        - Open up a browser and open localhost/8360
+    3. Run a web server that is going to act as the client platform by opening the cli and typing: `python -m http.server --cgi 8360` then:
+        - Open up a browser and open `localhost:8360`
         - This should open up the webGL server
 
     4. The host of the server can now host a game by clicking start in the main menu then:
