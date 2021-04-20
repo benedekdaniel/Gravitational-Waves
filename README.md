@@ -45,7 +45,3 @@ Steps to take to deploy the project:
         - Click join game
         - Click start
         - And select the server with the appropriate game code that has been generated for the hosted server.
-
-
-
-    
