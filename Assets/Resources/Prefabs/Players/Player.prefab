@@ -298,7 +298,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   characterController: {fileID: 8993127209816276930}
-  moveSpeed: 10
+  moveSpeed: 8
   turnSensitivity: 5
   maxTurnSpeed: 150
   horizontal: 0

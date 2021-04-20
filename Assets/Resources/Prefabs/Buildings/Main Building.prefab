@@ -79,7 +79,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
+  - {fileID: 2100000, guid: 58936713efca1ec488624ee297b5d687, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,15 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b862bc028ab878048805f7d1334d51f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   TaskName: MirrorCleaning
-  Task:
-    Id: 
-    Title: 
-    Description: 
-    Prefab: 
-    Reward: 
 --- !u!135 &3569949163298508399
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1048,7 +1040,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
+  - {fileID: 2100000, guid: 58936713efca1ec488624ee297b5d687, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1115,15 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b862bc028ab878048805f7d1334d51f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   TaskName: WaveformFitter
-  Task:
-    Id: 
-    Title: 
-    Description: 
-    Prefab: 
-    Reward: 
 --- !u!114 &2315571327019511342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1218,7 +1202,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
+  - {fileID: 2100000, guid: 58936713efca1ec488624ee297b5d687, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1285,15 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b862bc028ab878048805f7d1334d51f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   TaskName: Range
-  Task:
-    Id: 
-    Title: 
-    Description: 
-    Prefab: 
-    Reward: 
 --- !u!114 &2072358607829456281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1504,14 +1480,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6705572962549736601}
     m_Modifications:
-    - target: {fileID: 2553649008678305012, guid: 561520033e2d9634b99b8a5baf62cf74, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3e46b23eb6516a34e8abad106a45e8c4, type: 2}
-    - target: {fileID: 6533083717650245375, guid: 561520033e2d9634b99b8a5baf62cf74, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3e46b23eb6516a34e8abad106a45e8c4, type: 2}
     - target: {fileID: 6611504611433878101, guid: 561520033e2d9634b99b8a5baf62cf74, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1556,10 +1524,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7457033603291072140, guid: 561520033e2d9634b99b8a5baf62cf74, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3e46b23eb6516a34e8abad106a45e8c4, type: 2}
     - target: {fileID: 8431757324960517661, guid: 561520033e2d9634b99b8a5baf62cf74, type: 3}
       propertyPath: m_Name
       value: Laser Cross Section
