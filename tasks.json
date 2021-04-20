@@ -14,5 +14,13 @@
     "task_url": "https://",
     "correct_answer": "259867",
     "reward": "Reward4"
+  },
+  {
+    "id":  "goldFishing",
+    "title": "Gold Fisher",
+    "description": "",
+    "task_url": "",
+    "correct_answer": "5",
+    "reward": "Reward3"
   }
 ]

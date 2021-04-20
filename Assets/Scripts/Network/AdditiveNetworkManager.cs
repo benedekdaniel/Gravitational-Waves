@@ -22,6 +22,7 @@ namespace Mirror.Examples.Additive
         public string[] subScenes;
 
         public override void Start() {
+
             base.Start();
 
             StartCoroutine(LoadSubScenes());
@@ -31,31 +32,6 @@ namespace Mirror.Examples.Additive
             if (isHost)
             {
                 StartHosting();
-                var spawnpoints = GameObject.FindGameObjectsWithTag("GenericTaskSpawnpoint").ToList();
-
-                foreach (var task in TaskManager.Tasks)
-                {
-                    if (task is GenericTask genericTask)
-                    {
-                        var spawnpoint = spawnpoints[random.Next(spawnpoints.Count)];
-                        spawnpoints.Remove(spawnpoint);
-
-                        var genericTaskPrefab = AssetManager.Prefab("GenericTaskObjective");
-
-                        var genericTaskGameObject = Instantiate(genericTaskPrefab, spawnpoint.transform.position, Quaternion.identity);
-                        var genericTaskTitleObject = genericTaskGameObject.GetComponentInChildren<TMPro.TMP_Text>();
-
-                        var interactiveTaskComponent = genericTaskGameObject.GetComponent<InteractiveTask>();
-                        genericTaskTitleObject.text = genericTask.GetTitle();
-
-                        interactiveTaskComponent.SetTask(genericTask);
-                        NetworkServer.Spawn(genericTaskGameObject);
-                    }
-                }
-
-                FindObjectOfType<TasksSyncer>().Tasks = new SyncList<Game.Tasks.Task>(TaskManager.Tasks);
-                // Assign tasks for host
-                PlayerManager.AssignRandomTasks(PlayerManager.LocalPlayer);
             }
 
         }
@@ -103,11 +79,39 @@ namespace Mirror.Examples.Additive
             yield return Resources.UnloadUnusedAssets();
         }
 
-        private void OnConnectedToServer()
+        public override void OnStartServer()
         {
-            // Assign tasks for clients
-            PlayerManager.AssignRandomTasks(PlayerManager.LocalPlayer);
+            base.OnStartServer();
 
+            var spawnpoints = GameObject.FindGameObjectsWithTag("GenericTaskSpawnpoint").ToList();
+
+            foreach (var task in TaskManager.Tasks)
+            {
+                if (task is GenericTask genericTask)
+                {
+                    var spawnpoint = spawnpoints[random.Next(spawnpoints.Count)];
+                    spawnpoints.Remove(spawnpoint);
+
+                    var genericTaskPrefab = AssetManager.Prefab("GenericTaskObjective");
+
+                    var genericTaskGameObject = Instantiate(genericTaskPrefab, spawnpoint.transform.position, Quaternion.identity);
+                    var genericTaskTitleObject = genericTaskGameObject.GetComponentInChildren<TMPro.TMP_Text>();
+
+                    var interactiveTaskComponent = genericTaskGameObject.GetComponent<InteractiveTask>();
+                    genericTaskTitleObject.text = genericTask.GetTitle();
+
+                    interactiveTaskComponent.SetTask(genericTask);
+                    NetworkServer.Spawn(genericTaskGameObject);
+                }
+            }
+        }
+
+        public override void OnClientConnect(NetworkConnection conn)
+        {
+            Debug.Log("Connected to the server. =----------");
+
+            PlayerManager.AssignRandomTasks(PlayerManager.LocalPlayer);
+            base.OnClientConnect(conn);
         }
     }
 }

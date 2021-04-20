@@ -17,7 +17,7 @@ namespace Game.Managers
 
             Debug.LogFormat("Task {0} triggered", task.Title);
 
-            var playerTask = PlayerManager.LocalPlayer.AssignedTasks.FirstOrDefault(x => x.GetOrigin() == task && !x.IsCompleted);
+            var playerTask = PlayerManager.LocalPlayer.AssignedTasks.FirstOrDefault(x => x.GetOrigin().Id == task.Id && !x.IsCompleted);
 
             if (playerTask != null) {
                 GameObject taskUI = InstanceManager.DisplayFullscreen("Task UI Framework");

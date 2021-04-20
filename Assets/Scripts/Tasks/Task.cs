@@ -9,7 +9,7 @@ namespace Game.Tasks
     public class Task : ITask {
         public bool IsInProgress { get; protected set; }
         public bool IsCompleted { get; protected set; }
-        public string Id { get; protected set; }
+        public string Id;
         public string Title;
         public string Description;
         public string Prefab;

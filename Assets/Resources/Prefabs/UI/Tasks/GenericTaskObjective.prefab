@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1068111115782466416}
   - component: {fileID: 3323544743285949979}
   - component: {fileID: 6343251045406986641}
+  - component: {fileID: 977679806715777208}
   m_Layer: 0
   m_Name: GenericTaskObjective
   m_TagString: Untagged
@@ -148,7 +149,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b862bc028ab878048805f7d1334d51f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   TaskName: 
+  Task:
+    Id: 
+    Title: 
+    Description: 
+    Prefab: 
+    Reward: 
 --- !u!135 &6343251045406986641
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -162,6 +171,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &977679806715777208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653886982184928785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482cb4fc36d95854b9cf63f186b87edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6496371487950280434
 GameObject:
   m_ObjectHideFlags: 0
