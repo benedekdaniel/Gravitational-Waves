@@ -10,9 +10,14 @@ public class UIHostGameMenu : MonoBehaviour
     public void HostGame()
     {
         var newNetworkDiscovery = FindObjectOfType<NewNetworkDiscovery>();
-        SceneManager.LoadScene("GameView");
+        StartCoroutine(LoadGamViewScene());
         NetworkManager.singleton.StartHost();
         newNetworkDiscovery.AdvertiseServer();
 
+    }
+
+    IEnumerator LoadGamViewScene()
+    {
+        yield return SceneManager.LoadSceneAsync("GameView");
     }
 }

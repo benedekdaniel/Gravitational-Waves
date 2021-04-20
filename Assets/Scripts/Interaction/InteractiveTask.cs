@@ -1,5 +1,6 @@
 using Game.Managers;
 using Game.Tasks;
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,32 +9,26 @@ using UnityEngine.Events;
 
 
 [RequireComponent(typeof(InteractionListener))]
-public class InteractiveTask : MonoBehaviour {
+public class InteractiveTask : NetworkBehaviour {
 
-    public string TaskName = "HelloWorld";
+    [SyncVar]
+    public string TaskName;
 
-    public Task Task { get; private set; }
-
-    public bool Ready { get; private set; }
+    [SyncVar]
+    public Task Task;
 
     public InteractionListener InteractionListener { get; private set; }
-    private void OnEnable() {
-        InteractionListener = gameObject.GetComponent<InteractionListener>();
-        Task = TaskManager.Task(TaskName);
+
+    public void SetTask(Task task)
+    {
+        Task = task;
     }
-
-
     private void Start() {
-        if (!Ready) {
-            if (Task != null) {
-                InteractionListener.OnInteraction.AddListener(Trigger);
-                Ready = true;
-            }
-        }
-    }
+        InteractionListener = gameObject.GetComponent<InteractionListener>();
+        InteractionListener.OnInteraction.AddListener(Trigger);
 
-    private void Update() {
-
+        if (!string.IsNullOrEmpty(TaskName))
+            Task = TaskManager.Task(TaskName);
     }
 
     private void OnDestroy() {

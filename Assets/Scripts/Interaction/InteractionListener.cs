@@ -8,20 +8,17 @@ using UnityEngine.Events;
 
 public enum InteractionMethod
 {
-    Trigger,
     Mouse,
     Key
 }
 
-public class InteractionListener : MonoBehaviour, IInteractible { 
+[RequireComponent(typeof(SphereCollider))]
+public class InteractionListener : MonoBehaviour, IInteractible {
 
     [Tooltip("Toggle whether this Game Object can be interacted with.")]
-    public bool IsInteractionAllowed = true;
+    public bool IsInteractionAllowed;
 
-    [Tooltip("Whether the interaction can be triggered by entering the sphere trigger.")]
-    public bool CanTriggerByProximity = false;
-
-    public float triggerRadius = 5f;
+    public float triggerRadius = 1f;
 
     [Tooltip("Whether the interaction can be triggered by mouse click.")]
     public bool CanTriggerByMouse = true;
@@ -32,45 +29,44 @@ public class InteractionListener : MonoBehaviour, IInteractible {
     [Tooltip("The keys by which the interaction can be triggered.")]
     public List<KeyCode> TriggerKeys = new List<KeyCode> { KeyCode.F };
 
-    public UnityEvent OnInteraction { get; set; }
+    public UnityEvent OnInteraction = new UnityEvent(); 
 
     private PlayerController localPlayerController;
-
-    public void OnEnable() {
-        OnInteraction = new UnityEvent();
-    }
+    private SphereCollider triggerSphere;
 
     private void Start()
     {
         localPlayerController = FindObjectOfType<PlayerController>();
+        triggerSphere = GetComponent<SphereCollider>();
+        triggerSphere.radius = triggerRadius;
+        triggerSphere.isTrigger = true;
     }
 
     public void Interact() {
-        OnInteraction?.Invoke();
+        OnInteraction.Invoke();
     }
 
     public void Update() {
 
+        if (localPlayerController == null)
+        {
+            localPlayerController = FindObjectOfType<PlayerController>();
+        }
         if (localPlayerController == null) return;
         
         if (IsInteractableBy(InteractionMethod.Key))
         {
-            if (Vector3.Distance(transform.position, localPlayerController.gameObject.transform.position) <= triggerRadius)
+            foreach (var keyCode in GetTriggerKeys())
             {
-                foreach (var keyCode in GetTriggerKeys())
+                if (Input.GetKeyDown(keyCode))
                 {
-                    if (Input.GetKeyDown(keyCode))
-                    {
-                        Interact();
-                        break;
-                    }
+                    Interact();
+                    break;
                 }
             }
         }
     }
 
-    // TODO: Currently clicks on the sphere collider also trigger the interaction. 
-    // Change this so it only registers on the specified collider.
     public void OnMouseDown()
     {
         if (localPlayerController == null) return;
@@ -98,11 +94,12 @@ public class InteractionListener : MonoBehaviour, IInteractible {
     /// </summary>
     /// <param name="interactionMethod">The specified interaction method.</param>
     /// <returns>True - if the object can be interacted with by the specified method | False - otherwise.</returns>
-    public bool IsInteractableBy(InteractionMethod interactionMethod) {
+    public bool IsInteractableBy(InteractionMethod interactionMethod)
+    {
+        if (!IsInteractionAllowed) return false;
 
         return interactionMethod switch
         {
-            InteractionMethod.Trigger => CanTriggerByProximity,
             InteractionMethod.Mouse => CanTriggerByMouse,
             InteractionMethod.Key => CanTriggerByKeys,
             _ => false,
@@ -113,9 +110,13 @@ public class InteractionListener : MonoBehaviour, IInteractible {
     /// When another object with a collider enters the trigger.
     /// </summary>
     /// <param name="other">The other object's collider compontent.</param>
-    private void OnTriggerEnter(Collider other) {
-        if (IsInteractableBy(InteractionMethod.Trigger) && other.gameObject.CompareTag("Player")) {
-            Interact();
-        }
+    private void OnTriggerEnter(Collider other)
+    {
+        IsInteractionAllowed = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        IsInteractionAllowed = false;
     }
 }

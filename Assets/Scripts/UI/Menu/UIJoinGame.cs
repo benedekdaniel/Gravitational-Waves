@@ -21,6 +21,12 @@ public class UIJoinGame : MonoBehaviour
         var gameCode = gameCodeText.text;
         MySceneManager.SetSceneArgument("GameView", "IsHost", false);
         MySceneManager.SetSceneArgument("GameView", "GameCode", gameCode);
-        SceneManager.LoadSceneAsync("GameView");
+
+        StartCoroutine(LoadGameView());
+    }
+
+    IEnumerator LoadGameView()
+    {
+        yield return SceneManager.LoadSceneAsync("GameView");
     }
 }

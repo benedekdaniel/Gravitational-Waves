@@ -51,24 +51,6 @@ public class NewNetworkDiscoveryHUD : MonoBehaviour
             newNetworkDiscovery.StartDiscovery();
         }
 
-        // LAN Host
-        if (GUILayout.Button("Start Host"))
-        {
-            ServerListManager.DiscoveredServers.Clear();
-            NetworkManager.singleton.StartHost();
-            FindObjectOfType<AdditiveNetworkManager>().StartHosting();
-            newNetworkDiscovery.AdvertiseServer();
-        }
-
-        // Dedicated server
-        if (GUILayout.Button("Start Server"))
-        {
-            ServerListManager.DiscoveredServers.Clear();
-            NetworkManager.singleton.StartServer();
-
-            newNetworkDiscovery.AdvertiseServer();
-        }
-
         GUILayout.EndHorizontal();
 
         // show list of found server

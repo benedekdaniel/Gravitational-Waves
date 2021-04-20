@@ -23,6 +23,13 @@ namespace Game.Players {
 
         public int Score { get; protected set; }
 
+        public bool HasTaskOpen { get; set; }
+
+        public Player()
+        {
+
+        }
+
         public Player(string name, Team team) {
             Name = name;
             Thumbnail = "gravitationalwaves-tex";
@@ -30,7 +37,6 @@ namespace Game.Players {
             IsHost = false;
 
             NumberOfTasks = SettingsManager.taskDefaultNumber;
-            PlayerManager.AssignRandomTasks(this);
             Team = team;
             Score = 0;
         }

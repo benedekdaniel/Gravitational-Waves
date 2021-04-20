@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class TaskListArrow : UIUtils
 {
     public float RotateOnZBy = 90f;
@@ -9,10 +5,8 @@ public class TaskListArrow : UIUtils
 
     private float _nextRotation;
 
-    private new void Awake()
+    private void Awake()
     {
-        base.Awake();
-
         _nextRotation = RotateOnZBy;
     }
 

@@ -1,17 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIUtils : MonoBehaviour
 {
-
     private bool _visible = true;
-
-    protected void Awake()
-    {
-    }
 
     /// <summary>
     /// Toggles whether a UI component is visible or not.
@@ -26,5 +19,12 @@ public class UIUtils : MonoBehaviour
     public void RotateZBy(float degrees, float duration)
     {
         // GameObject.Rotate(gameObject, new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z + degrees), duration);
+    }
+
+    public IEnumerator ResetCode(Text inputCode, float codeResetTimeInSeconds)
+    {
+        yield return new WaitForSeconds(codeResetTimeInSeconds);
+
+        inputCode.text = string.Empty;
     }
 }

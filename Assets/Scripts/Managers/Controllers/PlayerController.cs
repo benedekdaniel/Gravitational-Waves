@@ -14,8 +14,7 @@ namespace Game.Managers.Controllers
 
         void OnValidate()
         {
-            if (characterController == null)
-                characterController = GetComponent<CharacterController>();
+            characterController = GetComponent<CharacterController>();
         }
 
         void Start()
@@ -33,18 +32,6 @@ namespace Game.Managers.Controllers
             Camera.main.orthographicSize = 10f;
             Camera.main.nearClipPlane = -50f;
             transform.Rotate(0f, 45f, 0f);
-        }
-
-        void OnDisable()
-        {
-            if (isLocalPlayer && Camera.main != null)
-            {
-                Camera.main.orthographic = true;
-                Camera.main.transform.SetParent(null);
-                Camera.main.transform.localPosition = new Vector3(0f, 70f, 0f);
-                Camera.main.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
-                Camera.main.orthographicSize = 40f;
-            }
         }
 
         [Header("Movement Settings")]
@@ -74,8 +61,6 @@ namespace Game.Managers.Controllers
                 turn = Mathf.MoveTowards(turn, -maxTurnSpeed, turnSensitivity);
             if (Input.GetKey(KeyCode.E))
                 turn = Mathf.MoveTowards(turn, maxTurnSpeed, turnSensitivity);
-            if (Input.GetKey(KeyCode.Q) && Input.GetKey(KeyCode.E))
-                turn = Mathf.MoveTowards(turn, 0, turnSensitivity);
             if (!Input.GetKey(KeyCode.Q) && !Input.GetKey(KeyCode.E))
                 turn = Mathf.MoveTowards(turn, 0, turnSensitivity);
 
